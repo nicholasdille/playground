@@ -1,3 +1,5 @@
+# https://de.wikipedia.org/wiki/SSHFP_Resource_Record
+
 resource "tls_private_key" "host-rsa" {
   algorithm = "RSA"
   rsa_bits = 4096
