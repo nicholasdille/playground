@@ -1,0 +1,36 @@
+resource "tls_private_key" "host-rsa" {
+  algorithm = "RSA"
+  rsa_bits = 4096
+}
+
+resource "tls_private_key" "host-ecdsa" {
+  algorithm = "ECDSA"
+}
+
+resource "tls_private_key" "host-ed25519" {
+  algorithm = "ECDSA"
+}
+
+resource "hetznerdns_record" "sshfp-rsa" {
+  zone_id = data.hetznerdns_zone.main.id
+  name    = var.name
+  value   = "1 2 ${tls_private_key.host-rsa.public_key_fingerprint_sha256}"
+  type    = "SSHFP"
+  ttl     = 120
+}
+
+resource "hetznerdns_record" "sshfp-ecdsa" {
+  zone_id = data.hetznerdns_zone.main.id
+  name    = var.name
+  value   = "3 2 ${tls_private_key.host-ecdsa.public_key_fingerprint_sha256}"
+  type    = "SSHFP"
+  ttl     = 120
+}
+
+resource "hetznerdns_record" "sshfp-ed25519" {
+  zone_id = data.hetznerdns_zone.main.id
+  name    = var.name
+  value   = "4 2 ${tls_private_key.host-ed25519.public_key_fingerprint_sha256}"
+  type    = "SSHFP"
+  ttl     = 120
+}

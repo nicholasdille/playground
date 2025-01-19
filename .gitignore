@@ -1,0 +1,8 @@
+.env.mk
+ssh
+ssh.pub
+.terraform
+.terraform.lock.hcl
+plan.out
+errored.tfstate
+ssh_config
