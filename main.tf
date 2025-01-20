@@ -1,5 +1,5 @@
-module "foo" {
-    source = "./foo"
+module "playground" {
+    source = "github.com/nicholasdille/terraform-module-playground?ref=0.1.0"
 
     name = "playground"
     domain = "inmylab.de"
