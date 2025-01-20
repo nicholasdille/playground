@@ -39,7 +39,6 @@ plan.out: *.tf .terraform.lock.hcl
 	@\
 	$(TF) plan \
 		-out=plan.out \
-		-var="name=$(NAME)" \
 		-var="hcloud_token=$(HCLOUD_TOKEN)" \
 		-var="hetznerdns_token=$(HETZNERDNS_TOKEN)"
 
@@ -55,7 +54,6 @@ destroy:
 	$(TF) destroy \
 		-auto-approve \
 		-state=terraform.tfstate \
-		-var="name=$(NAME)" \
 		-var="hcloud_token=$(HCLOUD_TOKEN)" \
 		-var="hetznerdns_token=$(HETZNERDNS_TOKEN)"
 	@rm -f terraform.tfstate*
