@@ -29,7 +29,8 @@ module "test" {
   hcloud_token     = var.hcloud_token
   hetznerdns_token = var.hetznerdns_token
 
-  include_certificate        = false
+  include_certificate        = true
   use_letsencrypt_staging_ca = true
+
   include_sshfp              = false
 }
