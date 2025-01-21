@@ -1,8 +1,7 @@
 .env.mk
-ssh
-ssh.pub
+
 .terraform
 .terraform.lock.hcl
+.terraform.tfstate.lock.info
 plan.out
-errored.tfstate
-ssh_config
+terraform.tfstate*
