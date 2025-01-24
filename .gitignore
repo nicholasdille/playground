@@ -1,7 +1,12 @@
 .env.mk
 
+gitlab-tofu
+gitlab-terraform
+
 .terraform
 .terraform.lock.hcl
 .terraform.tfstate.lock.info
+plan.cache
 plan.out
 terraform.tfstate*
+errored.tfstate

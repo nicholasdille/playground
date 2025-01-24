@@ -1,24 +1,11 @@
-#module "playground" {
-#    source = "github.com/nicholasdille/terraform-module-playground"
-#
-#    name = "playground"
-#    domain = "inmylab.de"
-#    location = "fsn1"
-#    type = "cpx31"
-#
-#    image_filter = "type=docker"
-#
-#    hcloud_token = var.hcloud_token
-#    hetznerdns_token = var.hetznerdns_token
-#
-#    include_certificate = true
-#    include_sshfp = false
-#}
+terraform {
+  backend "http" {}
+}
 
-module "test" {
-  source = "../terraform-module-playground"
+module "playground" {
+  source = "github.com/nicholasdille/terraform-module-playground?ref=0.3.0"
 
-  name         = "playground2"
+  name         = "playground"
   domain       = "inmylab.de"
   location     = "fsn1"
   type         = "cpx31"
@@ -29,8 +16,8 @@ module "test" {
   hcloud_token     = var.hcloud_token
   hetznerdns_token = var.hetznerdns_token
 
-  include_certificate        = true
+  include_certificate        = false
   use_letsencrypt_staging_ca = true
 
-  include_sshfp              = false
+  include_sshfp = false
 }
