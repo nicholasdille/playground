@@ -1,14 +1,11 @@
-terraform {
-  backend "http" {}
-}
-
 module "playground" {
-  source = "github.com/nicholasdille/terraform-module-playground?ref=0.3.0"
+  source = "github.com/nicholasdille/terraform-module-playground?ref=0.4.0"
 
-  name         = "playground"
-  domain       = "inmylab.de"
-  location     = "fsn1"
-  type         = "cpx31"
+  name       = "playground"
+  domain     = "inmylab.de"
+  location   = "fsn1"
+  type       = "cpx31"
+  #image_name = "ubuntu-24.04"
   image_filter = "type=docker"
 
   cloud_init_user_data = file("./cloud_init_user_data.txt")
